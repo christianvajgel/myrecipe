@@ -13,18 +13,18 @@
 <body>
     <div align="center">
         <h2>Cadastrar</h2>
-        <form:form action="esqueceuSenha" method="post" modelAttribute="usuario">
+        <form:form action="esqueceuSenha" method="POST" modelAttribute="usuario">
             <table border="0" cellpadding="5">
                 <tr>
                     <td>Email:</td>
                     <td>
-                        <form:input type="email" path="email" required="required"/></td>
+                        <form:input type="email" name="email" id="email" path="email" required="required"/></td>
                         <%--<form:hidden path="email"/>--%>
                     </td>
                 </tr>  
                 <tr>
                     <td>Nova senha:</td>
-                    <td><form:input type="password" path="senha" required="required"/></td>
+                    <td><form:input type="password" name="senha" id="senha" path="senha" required="required"/></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="submit" class="btn btn-outline-success" value="Salvar"></td>

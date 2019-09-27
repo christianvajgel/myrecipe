@@ -13,15 +13,21 @@
 <body>
     <div align="center">
         <h2>Alterar Receita</h2>
-        <form:form action="salvarReceita" method="post" modelAttribute="receita">
+        <form:form action="alterarReceita" method="post" modelAttribute="receita">
             <table border="0" cellpadding="5">
                 <tr>
-                    <td>Nome:</td>
-                    <td><form:input type="text" path="nome" required="required"/></td>
+                    <td>ID: </td>
+                    <td>${receita.idReceita}
+                        <form:hidden name="idReceita" id="idReceita" path="idReceita"/>
+                    </td>
                 </tr>
                 <tr>
-                    <td>Preparo</td>
-                    <td><form:input type="text" path="nome" required="required"/></td>
+                    <td>Nome:</td>
+                    <td><form:input type="text" name="nome" id="nome" path="nome" required="required"/></td>
+                </tr>
+                <tr>
+                    <td>Preparo:</td>
+                    <td><form:input type="text" name="preparo" id="preparo" path="preparo" required="required"/></td>
                 </tr>
                 <tr>
                     <td colspan="2"><input type="reset" class="btn btn-outline-danger" value="Limpar"></td>

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ControllerUsuario {
@@ -43,14 +44,16 @@ public class ControllerUsuario {
         }
     }
     
-//    @RequestMapping(value = "/esqueceuSenha", method = RequestMethod.GET)
-//    public String alterarSenhaUsuarioBanco(@ModelAttribute("usuario") Usuario usuario){
-//        return "esqueceuSenha";
-//    }
-//    
-//    @RequestMapping(value = "/esqueceuSenha", method = RequestMethod.POST)
-//    public String salvarNovaSenhaUsuarioBanco(@RequestParam String email, String senha) { //(@ModelAttribute("usuario") Usuario usuario){
-//        daoU.alterarSenhaUsuarioBanco(email, senha);
-//        return "redirect:login";
-//    }
+    @RequestMapping(value = "/esqueceuSenha", method = RequestMethod.GET)
+    public String alterarSenhaUsuarioBanco(@ModelAttribute("usuario") Usuario usuario){
+        return "esqueceuSenha";
+    }
+    
+    @RequestMapping(value = "/esqueceuSenha", method = RequestMethod.POST)
+    public String salvarNovaSenhaUsuarioBanco(@RequestParam String email, String senha) throws SQLException {
+        UsuarioDAO daoU = new UsuarioDAO();
+        
+        daoU.alterarSenhaUsuarioBanco(email, senha);
+        return "redirect:login";
+    }
 }

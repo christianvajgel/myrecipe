@@ -23,7 +23,6 @@
                 <div class="form-group">
                     <table border="1" cellpadding="5">
                     <tr>
-                        <th>ID</th>
                         <th>Nome</th>
                         <th>Quantidade (g)</th>
                         <th>Data Validade</th>
@@ -31,7 +30,6 @@
                     </tr>
                     <c:forEach items="${listaProdutos}" var="produto">
                     <tr>
-                        <td>${produto.idProduto}</td>
                         <td>${produto.nome}</td>
                         <td>${produto.quantidade}</td>
                         <td>${produto.dataValidade}</td>

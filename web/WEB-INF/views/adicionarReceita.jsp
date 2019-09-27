@@ -13,15 +13,15 @@
 <body>
     <div align="center">
         <h2>Adicionar Receita</h2><br/>
-        <form:form action="salvarReceita" method="post" modelAttribute="receita">
+        <form:form action="salvarReceita" method="post" >
             <table border="0" cellpadding="5">
                 <tr>
-                    <td>Receita:</td>
-                    <td><form:input type="text" path="nome" required="required"/></td>
+                    <td>Nome:</td>
+                    <td><input type="text" name="nome" id="nome" class="form-control" required="required"/></td>
                 </tr>
                 <tr>
-                    <td>Modo de Preparo:</td>
-                    <td><form:textarea path="preparo" rows="5" cols="30" required="required"/></td>
+                    <td>Preparo:</td>
+                    <td><textarea type="text" name="preparo" id="preparo" rows="5" cols="30" class="form-control" required="required"></textarea></td>
                 </tr>
                     <td colspan="2"><input type="reset" class="btn btn-outline-danger" value="Limpar"></td>
                     <td colspan="2"><input type="submit" class="btn btn-outline-success" value="Salvar"></td>

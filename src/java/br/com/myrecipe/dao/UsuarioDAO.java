@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 public class UsuarioDAO {
     
@@ -31,17 +32,6 @@ public class UsuarioDAO {
         EntityManager em = getEM();
         em.getTransaction().begin();
         em.merge(usuario);
-        em.getTransaction().commit();
-        em.close();
-    }
-    
-    public void excluirUsuarioBanco(int idUsuario) throws SQLException{
-        
-        EntityManager em = getEM();
-        em.getTransaction().begin();
-        Usuario usuarioDB = buscarUsuarioPorID(idUsuario);
-        usuarioDB = em.merge(usuarioDB);
-        em.remove(usuarioDB);
         em.getTransaction().commit();
         em.close();
     }
@@ -78,5 +68,17 @@ public class UsuarioDAO {
             System.out.println("Exception e UsuarioDAO Linha 39: " + e.getMessage());
         }
         return listaUsuarioDB;
+    }
+    
+    public void alterarSenhaUsuarioBanco(String email, String senha) throws SQLException{
+        EntityManager em = getEM();
+        
+        Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :usuarioEmail");
+        query.setParameter("usuarioEmail", email);
+
+        Usuario usuario = (Usuario) query.getSingleResult();
+        usuario.setSenha(senha);
+//        em.persist(usuario);   
+        alterarUsuarioBanco(usuario);
     }
 }

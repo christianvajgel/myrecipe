@@ -41,10 +41,9 @@ public class ControllerProduto {
     @RequestMapping(value = "/alterarProduto", method = RequestMethod.GET)     
     public ModelAndView alterarProdutoBanco(@RequestParam int idProduto){
         ProdutoDAO daoP = new ProdutoDAO();
-        Produto produto;
+        Produto produto = daoP.buscarProdutoPorID(idProduto);
         
         ModelAndView mav = new ModelAndView("alterarProduto");
-        produto = daoP.buscarProdutoPorID(idProduto);
         mav.addObject("produto", produto);
         return mav;
     }
