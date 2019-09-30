@@ -70,15 +70,19 @@ public class UsuarioDAO {
         return listaUsuarioDB;
     }
     
-    public void alterarSenhaUsuarioBanco(String email, String senha) throws SQLException{
+    public String alterarSenhaUsuarioBanco(String email, String senha) throws SQLException{
         EntityManager em = getEM();
         
-        Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :usuarioEmail");
-        query.setParameter("usuarioEmail", email);
-
-        Usuario usuario = (Usuario) query.getSingleResult();
-        usuario.setSenha(senha);
-//        em.persist(usuario);   
-        alterarUsuarioBanco(usuario);
+        try {
+            Query query = em.createQuery("SELECT u FROM Usuario u WHERE u.email = :usuarioEmail");
+            query.setParameter("usuarioEmail", email);
+            Usuario usuario = (Usuario) query.getSingleResult();
+            usuario.setSenha(senha);
+            alterarUsuarioBanco(usuario);
+            return "login";
+        } catch (Exception e) {
+            System.out.println("Exception e UsuarioDAO Linha 39: " + e.getMessage());
+            return "esqueceuSenha";
+        }
     }
 }

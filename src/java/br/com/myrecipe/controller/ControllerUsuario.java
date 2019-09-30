@@ -5,6 +5,7 @@ import org.springframework.ui.Model;
 import br.com.myrecipe.dao.UsuarioDAO;
 import br.com.myrecipe.dominio.Usuario;
 import java.sql.SQLException;
+import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -32,15 +33,17 @@ public class ControllerUsuario {
     }
     
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public String autenticarUsuario(Model model, Usuario usuario){
+    public String autenticarUsuario(Model model, Usuario usuario, HttpSession session){
         UsuarioDAO daoU = new UsuarioDAO();
         List<Usuario> usuarioDB = daoU.buscarUsuarioPorEmailSenha(usuario.getEmail(), usuario.getSenha());
         
         if (usuarioDB.size() > 0) {
+            session.setAttribute("usuarioAutenticado", usuario);
             model.addAttribute("nomeUsuario", usuarioDB.get(0).getNome());
+//            model.addAttribute("conta", usuarioDB.get(0).getConta());
             return "home";
         } else {
-            return "dadosInvalidos";
+            return "login";
         }
     }
     
@@ -50,10 +53,9 @@ public class ControllerUsuario {
     }
     
     @RequestMapping(value = "/esqueceuSenha", method = RequestMethod.POST)
-    public String salvarNovaSenhaUsuarioBanco(@RequestParam String email, String senha) throws SQLException {
+    public String salvarNovaSenhaUsuarioBanco(@ModelAttribute("usuario") Usuario usuario, @RequestParam String email, String senha) throws SQLException {
         UsuarioDAO daoU = new UsuarioDAO();
         
-        daoU.alterarSenhaUsuarioBanco(email, senha);
-        return "redirect:login";
+        return daoU.alterarSenhaUsuarioBanco(email, senha);
     }
 }

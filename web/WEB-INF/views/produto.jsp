@@ -13,14 +13,14 @@
     <body>
         <div class="container" align="center">
             <div class="col-md-6 cadastro">
-                <br/>
+                <br/><br/>
                 <h1>Produto</h1>
                 <form>
                     <div class="form-group">
-                        <input type="button" class="btn btn-outline-success" onclick="location.href='adicionarProduto'" value="Adicionar">
+                        <br/><input type="button" class="btn btn-outline-success" onclick="location.href='adicionarProduto'" value="Adicionar">
                     </div>
                 </form>    
-                <div class="form-group">
+                <div class="form-group"><br/>
                     <table border="1" cellpadding="5">
                     <tr>
                         <th>Nome</th>

@@ -8,6 +8,7 @@ import java.util.logging.Logger;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 import javax.persistence.criteria.CriteriaQuery;
 
 public class ReceitaDAO {
@@ -75,5 +76,20 @@ public class ReceitaDAO {
             Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, e);
         } 
         return listaReceita;
+    }
+    
+    public List<Receita> listarReceitasPossiveis(){
+    
+        List<Receita> listaPossiveisReceitas = null;
+        EntityManager em = getEM();
+        try {
+            String sql = "select * from receita where idReceita not in (select receitaproduto.idReceita "
+                    + "from receitaproduto,produto where receitaproduto.quantidade > produto.quantidade);";
+            Query query = em.createNativeQuery(sql, Receita.class);
+            listaPossiveisReceitas = query.getResultList();
+        } catch (Exception e) {
+            System.out.println("Exception e: " + e.getMessage());
+        }
+        return listaPossiveisReceitas;
     }
 }

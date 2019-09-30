@@ -14,6 +14,7 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
+    private int conta;
 
     public int getIdUsuario() {
         return idUsuario;
@@ -45,5 +46,13 @@ public class Usuario {
 
     public void setSenha(String senha) {
         this.senha = senha;
+    }
+
+    public int getConta() {
+        return conta;
+    }
+
+    public void setConta(int conta) {
+        this.conta = conta;
     }
 }

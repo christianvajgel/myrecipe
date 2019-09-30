@@ -11,27 +11,22 @@
 <title>Login</title>
 </head>
 <body>
-    <div align="center">
+    <div align="center"><br/><br/>
         <h2>Login</h2>
-        <form:form action="autenticarUsuario" method="post" modelAttribute="usuario">
-            <table border="0" cellpadding="5">
+        <form:form action="login" method="POST" modelAttribute="usuario">
+            <table border="0" cellpadding="5"><br/><br/>
                 <tr>
                     <td>Email:</td>
-                    <td><form:input type="email" path="email" required="required"/></td>
+                    <td><form:input type="email" name="email" id="email" path="email" class="form-control" required="required"/></td>
                 </tr>
                 <tr>
                     <td>Senha:</td>
-                    <td><form:input type="password" path="senha" required="required"/></td>
+                    <td><form:input type="password" name="senha" id="senha" path="senha" class="form-control" required="required"/></td>
                 </tr>
-                <tr>
-                    <td><input type="submit" class="btn btn-outline-success" value="Logar"></td>
-                </tr>
-                <tr>
-                    <!--<td colspan="2"><input type="button" class="btn btn-outline-danger" onclick="location.href='esqueceuSenha'" value="Esqueceu Senha"></td>-->
-                    <td><input type="button" class="btn btn-outline-danger" onclick="location.href='esqueceuSenha'" value="Esqueceu Senha"></td>
-                    <td><input type="button" class="btn btn-outline-warning" onclick="location.href='cadastro'" value="Cadastrar"></td>
-                </tr>                    
             </table>
+                <br/><input type="submit" class="btn btn-outline-success" value="Logar">
+                <input type="button" class="btn btn-outline-warning" onclick="location.href='cadastrar'" value="Cadastrar"><br/><br/>                                      
+                <input type="button" class="btn btn-outline-danger" onclick="location.href='esqueceuSenha'" value="Esqueceu Senha">
         </form:form>
     </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 

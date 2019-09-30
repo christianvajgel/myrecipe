@@ -10,16 +10,18 @@ public class ReceitaProduto {
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idReceitaProduto;
     private int idReceita;
     private int idProduto;
     private double quantidade;
 
-//    public ReceitaProduto() {
-//    }
-//
-//    public ReceitaProduto(double quantidade) {
-//        this.quantidade = quantidade;
-//    }
+    public int getIdReceitaProduto() {
+        return idReceitaProduto;
+    }
+
+    public void setIdReceitaProduto(int idReceitaProduto) {
+        this.idReceitaProduto = idReceitaProduto;
+    }
 
     public int getIdReceita() {
         return idReceita;

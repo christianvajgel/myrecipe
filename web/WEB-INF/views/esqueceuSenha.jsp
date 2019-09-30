@@ -8,28 +8,26 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
       integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<title>Cadastro</title>
+<title>Esqueceu Senha?</title>
 </head>
 <body>
-    <div align="center">
-        <h2>Cadastrar</h2>
-        <form:form action="esqueceuSenha" method="POST" modelAttribute="usuario">
+    <div align="center"><br/><br/>
+        <h2>Esqueceu Senha?</h2><br/>
+        <%--<form:form action="esqueceuSenha" method="POST" >--%>
+            <form:form action="esqueceuSenha" method="POST" modelAttribute="usuario">
             <table border="0" cellpadding="5">
                 <tr>
                     <td>Email:</td>
                     <td>
-                        <form:input type="email" name="email" id="email" path="email" required="required"/></td>
-                        <%--<form:hidden path="email"/>--%>
+                        <form:input type="email" name="email" id="email" path="email" class="form-control" required="required"/>
                     </td>
                 </tr>  
                 <tr>
                     <td>Nova senha:</td>
-                    <td><form:input type="password" name="senha" id="senha" path="senha" required="required"/></td>
+                    <td><form:input type="password" name="senha" id="senha" path="senha" class="form-control" required="required"/></td>
                 </tr>
-                <tr>
-                    <td colspan="2"><input type="submit" class="btn btn-outline-success" value="Salvar"></td>
-                </tr>                    
-            </table>
+            </table><br/>
+            <input type="submit" class="btn btn-outline-success" value="Salvar">
         </form:form>
     </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 

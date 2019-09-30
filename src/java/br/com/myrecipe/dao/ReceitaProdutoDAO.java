@@ -22,5 +22,4 @@ public class ReceitaProdutoDAO {
         em.getTransaction().commit();
         em.close();
     }    
-    
 }

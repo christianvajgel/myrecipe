@@ -1,10 +1,7 @@
 package br.com.myrecipe.controller;
 
-import br.com.myrecipe.dao.ProdutoDAO;
 import java.util.List;
-import org.springframework.ui.Model;
 import br.com.myrecipe.dao.ReceitaDAO;
-import br.com.myrecipe.dominio.Produto;
 import br.com.myrecipe.dominio.Receita;
 import java.sql.SQLException;
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -22,7 +18,7 @@ public class ControllerReceita {
     public ModelAndView carregarListaReceitasBanco() {
         ReceitaDAO daoR = new ReceitaDAO(); 
         
-        List<Receita> listaReceitas = daoR.listarTodasReceitas();
+        List<Receita> listaReceitas = daoR.listarReceitasPossiveis();
         ModelAndView mav = new ModelAndView("receita");
         mav.addObject("listaReceitas", listaReceitas);
         return mav;

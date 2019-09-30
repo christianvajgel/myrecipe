@@ -11,8 +11,8 @@
 <title>Alterar Receita</title>
 </head>
 <body>
-    <div align="center">
-        <h2>Alterar Receita</h2>
+    <div align="center"><br/><br/>
+        <h2>Alterar Receita</h2><br/>
         <form:form action="alterarReceita" method="post" modelAttribute="receita">
             <table border="0" cellpadding="5">
                 <tr>
@@ -23,17 +23,15 @@
                 </tr>
                 <tr>
                     <td>Nome:</td>
-                    <td><form:input type="text" name="nome" id="nome" path="nome" required="required"/></td>
+                    <td><form:input type="text" name="nome" id="nome" path="nome" class="form-control" required="required"/></td>
                 </tr>
                 <tr>
                     <td>Preparo:</td>
-                    <td><form:input type="text" name="preparo" id="preparo" path="preparo" required="required"/></td>
+                    <td><form:textarea type="text" name="preparo" id="preparo" path="preparo" rows="5" cols="30" class="form-control" required="required"/></td>
                 </tr>
-                <tr>
-                    <td colspan="2"><input type="reset" class="btn btn-outline-danger" value="Limpar"></td>
-                    <td colspan="2"><input type="submit" class="btn btn-outline-success" value="Salvar"></td>
-                </tr>                    
             </table>
+            <br/><input type="reset" class="btn btn-outline-danger" value="Limpar">
+            <input type="submit" class="btn btn-outline-success" value="Salvar">
         </form:form>
     </div>
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
