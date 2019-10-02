@@ -10,10 +10,10 @@
         <title>Adicionar Produto</title>
     </head>
     <body>
-        <div align="center">
+        <div align="center"><br/><br/>
             <h2>Adicionar Produto</h2>
             <form action="salvarProduto" method="POST" >
-                <table border="0" cellpadding="5">
+                <br/><table border="0" cellpadding="5">
                     <tr>
                         <td>Nome:</td>                  
                         <td><input type="text" name="nome" id="nome" class="form-control" required="required"/></td>
@@ -26,11 +26,9 @@
                         <td>Data Validade:</td>
                         <td><input type="date" name="dataValidade" id="dataValidade" class="form-control" required="required"/></td>
                     </tr>    
-                    <tr>
-                        <td colspan="2"><input type="reset" class="btn btn-outline-danger" value="Limpar"></td>
-                        <td colspan="2"><input type="submit" class="btn btn-outline-success" value="Salvar"></td>
-                    </tr>                    
                 </table>
+                <br/><input type="reset" class="btn btn-outline-danger" value="Limpar">
+                <input type="submit" class="btn btn-outline-success" value="Salvar">
             </form>
         </div>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" 
@@ -39,5 +37,5 @@
     integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"/>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" 
     integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"/>
-    </body>
+    </body> 
 </html>
