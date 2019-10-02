@@ -61,13 +61,6 @@ public class ProdutoDAO {
         EntityManager em = getEM();
         try {
             produtoBanco = em.find(Produto.class, idProduto);
-//            CriteriaQuery criteria = em.getCriteriaBuilder().createQuery();
-//            criteria.select(criteria.from(Produto.class));
-//            List<Produto> lista = em.createQuery(criteria).getResultList();
-//        } catch (IllegalArgumentException iae) {
-//            System.out.println("IllegalArgumentException iae ProdutoDAO Linha 72: " + iae.getMessage());
-//            System.out.println("IllegalArgumentException iae ProdutoDAO Linha 72: " + iae.getLocalizedMessage());
-//            Logger.getLogger(ProdutoDAO.class.getName()).log(Level.SEVERE, null, iae);
         } catch(Exception e){
             System.out.println("Exception e ProdutoDAO Linha 72: " + e.getMessage());
             System.out.println("Exception e ProdutoDAO Linha 72: " + e.getLocalizedMessage());
@@ -76,25 +69,8 @@ public class ProdutoDAO {
         return produtoBanco;
     }
     
-    
-    
     public List<Produto> listarTodosProdutos(){
         
-//        List<Cadastro> lista = new ArrayList<>();
-//        Conexao conn = new Conexao();
-//        String sql = "select * from cadastro";
-//        PreparedStatement ps = conn.getConexao().prepareStatement(sql);
-//        ResultSet rs = ps.executeQuery();
-//        
-//        while (rs.next()) {
-//            Cadastro cadastro = new Cadastro();
-//            
-//            cadastro.setNome(rs.getString("nome"));
-//            cadastro.setEndereco(rs.getString("endereco"));
-//            cadastro.setTelefone(rs.getInt("telefone"));
-//            cadastro.setEmail(rs.getString("email"));
-//            lista.add(cadastro);
-//        }
         List<Produto> listaProdutos = null; 
         EntityManager em = getEM();
         try {

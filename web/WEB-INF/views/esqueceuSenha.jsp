@@ -13,7 +13,6 @@
 <body>
     <div align="center"><br/><br/>
         <h2>Esqueceu Senha?</h2><br/>
-        <%--<form:form action="esqueceuSenha" method="POST" >--%>
             <form:form action="esqueceuSenha" method="POST" modelAttribute="usuario">
             <table border="0" cellpadding="5">
                 <tr>

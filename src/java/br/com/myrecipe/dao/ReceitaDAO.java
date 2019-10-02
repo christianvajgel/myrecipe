@@ -83,8 +83,6 @@ public class ReceitaDAO {
         List<Receita> listaPossiveisReceitas = null;
         EntityManager em = getEM();
         try {
-//            String sql = "select * from receita where idReceita in (select receitaproduto.idReceita "
-//                    + "from receitaproduto,produto where receitaproduto.quantidade > produto.quantidade);";
             String sql = "select * from receita where idReceita not in (select receitaproduto.idReceita from receitaproduto,produto "
                     + "where receitaproduto.idProduto = produto.idProduto and receitaproduto.quantidade > produto.quantidade);";
             Query query = em.createNativeQuery(sql, Receita.class);

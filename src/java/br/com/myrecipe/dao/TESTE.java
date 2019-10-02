@@ -45,5 +45,4 @@ public class TESTE {
         rp.setQuantidade(12);
         daoRP.adicionarReceitaProdutoBanco(rp);
     }
-    
 }
